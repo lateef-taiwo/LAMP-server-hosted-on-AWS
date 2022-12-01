@@ -57,6 +57,7 @@ ___
     > sudo chmod 0400 <private-key-name>. pem 
 * Connect to the instance by running
     > ssh -i <private-key-name>. pem ubuntu@<Public-IP-address>
+    
      The public ip address of my virtual server is 13.40.64.167 as shown in the image 
      Note: For Ubuntu server, the usernanme is ubuntu and for other servers like Fedora Amazon Machine image (AMI), the username is fedora or ec2-user.  
 Congratulations! You have just created your very first Linux Server in the Cloud and our set up looks like this now: (You are the client)
