@@ -75,12 +75,17 @@ Apache HTTP Server is the most widely used web server software. Developed and ma
 <!-- UL -->
 * Update a list of packages in package manager
     > sudo apt update
+
     ![image3](./screenshots/p4.jpeg)
 * Run apache2 package installation
-    > sudo apt install apache2
+ > sudo apt install apache2
+
+![image3](./screenshots/p4.jpeg)
+
 * To verify that apache2 is running as a Service
-    > sudo systemctl status apache2 
-    
+> sudo systemctl status apache2 
+
+![image3](./screenshots/p5.jpeg)
 Before we can receive any traffic by our Web Server, we need to open TCP port 80 which is the default port that web browsers use to access web pages on the Internet
 As we know, we have TCP port 22 open by default on our EC2 machine to access it via SSH, so we need to add a rule to EC2 configuration to open inbound connection through port 80:
 I configured the inbound when I was creating the virtual server
@@ -108,12 +113,15 @@ ___
 Now that you have a web server up and running, you need to install a Database Management System (DBMS) to be able to store and manage data for your site in a relational database. MySQL is a popular relational database management system used within PHP environments, so we will use it in our project.
 Again, use ‘apt’ to acquire and install this software:
 > $ sudo apt install mysql-server
+
 ![image5](./screenshots/p9.jpeg)
 
 When prompted, confirm installation by typing Y, and then ENTER.
 
 When the installation is finished, log in to the MySQL console by typing:
 > $ sudo mysql
+
+![image3](./screenshots/p10.jpeg)
 
 This will connect to the MySQL server as the administrative database user root, which is inferred by the use of sudo when running this command. You should see output like this:
 
@@ -160,6 +168,7 @@ You have Apache installed to serve your content and MySQL installed to store and
 To install these 3 packages at once, run:
 > sudo apt install php libapache2-mod-php php-mysql
 
+ ![image3](./screenshots/p11.jpeg)
 Once the installation is finished, you can run the following command to confirm your PHP version:
 
 > php -v
@@ -167,6 +176,7 @@ PHP 7.4.3 (cli) (built: Oct 6 2020 15:47:56) (NTS)
 Copyright (c) The PHP Group
 Zend Engine v3.4.0, Copyright (c) Zend Technologies
 
+ ![image3](./screenshots/p12.jpeg)
 #### At this point, your LAMP stack is completely installed and fully operational.
 <!-- UL -->
 * Linux (Ubuntu)
@@ -188,6 +198,7 @@ Create the directory for projectlamp using ‘mkdir’ command as follows:
 > sudo mkdir /var/www/projectlamp
 
 Next, assign ownership of the directory with your current system user:
+
 >  sudo chown -R $USER:$USER /var/www/projectlamp
 
 Then, create and open a new configuration file in Apache’s sites-available directory using your preferred command-line editor. Here, we’ll be using vi or vim (They are the same by the way):
@@ -204,6 +215,43 @@ This will create a new blank file. Paste in the following bare-bones configurati
     ErrorLog {APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost> 
+
+You can use the ls command to show the new file in the sites-available directory
+> sudo ls /etc/apache2/sites-available
+
+You will see something like this;
+> 000-default.conf default-ssl.conf  projectlamp.conf
+
+With this VirtualHost configuration, we’re telling Apache to serve projectlamp using /var/www/projectlampl as its web root directory. If you would like to test Apache without a domain name, you can remove or comment out the options ServerName and ServerAlias by adding a # character in the beginning of each option’s lines. Adding the # character there will tell the program to skip processing the instructions on those lines.
+You can now use a2ensite command to enable the new virtual host:
+> sudo a2ensite projectlamp
+
+You might want to disable the default website that comes installed with Apache. This is required if you’re not using a custom domain name, because in this case Apache’s default configuration would overwrite your virtual host. 
+
+> sudo a2dissite 000-default
+
+ To disable Apache’s default website use a2dissite command, type:
+
+> sudo a2dissite 000-default
+
+To make sure your configuration file doesn’t contain syntax errors, run:
+
+> sudo apache2ctl configtest
+
+Finally, reload Apache so these changes take effect:
+> sudo systemctl reload apache2
+
+![image3](./screenshots/p13.jpeg)
+
+Your new website is now active, but the web root /var/www/projectlamp is still empty. Create an index.html file in that location so that we can test that the virtual host works as expected:
+
+> sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html
+
+Now go to your browser and try to open your website URL using IP address:
+http://<Public-IP-Address>:80
+![image3](./screenshots/p14.jpeg)
+You can see the text "Hello LAMP from hostname" as in the command above.
+
 
 ### Step 6: Enable  PHP on the Website
 With the default DirectoryIndex settings on Apache, a file named index.html will always take precedence over an index.php file. This is useful for setting up maintenance pages in PHP applications, by creating a temporary index.html file containing an informative message to visitors. Because this page will take precedence over the index.php page, it will then become the landing page for the application. Once maintenance is over, the index.html is renamed or removed from the document root, bringing back the regular application page.
