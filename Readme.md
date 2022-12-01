@@ -2,7 +2,7 @@
 #   LAMP STACK IMPLEMENTATION ON AWS
 LAMP stack (Linux + Apache + MySQL + PHP/Perl/Python) are a popular setup for web servers. There is a plethora of Open Source applications written using the LAMP application stack. Some popular LAMP applications are Wiki’s, Content Management Systems, and Management Software such as phpMyAdmin.
 
-![lamp image](./lamp.jpeg)
+![lamp image](./screenshots/lamp.jpeg)
 
 One advantage of LAMP is the substantial flexibility for different database, web server, and scripting languages. Popular substitutes for MySQL include SQLite and  PostgreSQL. PHP can be replaced with  Python, Perl while Nginx, Cherokee and Lighttpd can replace Apache in other web stack implementatios like the LEMP application stack.
 
@@ -50,7 +50,7 @@ ___
     * For windows users choose .ppk for use with putty. Putty is a software that lets you connect remotely to servers
 * Save your private key (.pem file) securely and do not share it with anyone! If you lose it, you will not be able to connect to your server ever again! 
 
-![EC2 instance image ](./p1.jpeg) 
+![EC2 instance image ](./screenshots/p1.jpeg) 
 * On your local computer, open the terminal and change directory to the Downloads folder, type 
     > cd ~/Downloads 
 * Change permissions for the private key file (.pem), otherwise you can get an error “Bad permission”
@@ -58,9 +58,9 @@ ___
 * Connect to the instance by running
     > ssh -i <private-key-name>. pem ubuntu@<Public-IP-address>
 Congratulations! You have just created your very first Linux Server in the Cloud and our set up looks like this now: (You are the client)
-![ssh_image](./p3.jpeg)
+![ssh_image](./screenshots/p3.jpeg)
 
-![Image](./diagram.jpeg)
+![Image](./screenshots/diagram.jpeg)
 
 <!-- Horizontal RUle -->
 ---
@@ -72,7 +72,7 @@ Apache HTTP Server is the most widely used web server software. Developed and ma
 <!-- UL -->
 * Update a list of packages in package manager
     > sudo apt update
-    ![image3](./p4.jpeg)
+    ![image3](./screenshots/p4.jpeg)
 * Run apache2 package installation
     > sudo apt install apache2
 * To verify that apache2 is running as a Service
@@ -82,7 +82,7 @@ Before we can receive any traffic by our Web Server, we need to open TCP port 80
 As we know, we have TCP port 22 open by default on our EC2 machine to access it via SSH, so we need to add a rule to EC2 configuration to open inbound connection through port 80:
 I configured the inbound when I was creating the virtual server
 
-![Inbound-rule-image](./p2.jpeg)
+![Inbound-rule-image](./screenshots/p2.jpeg)
 * Our server is running and we can access it locally and from the Internet (Source 0.0.0.0/0 means ‘from any IP address’).
 First, let us try to check how we can access it locally in our Ubuntu shell, run:
 > curl http://localhost:80
@@ -92,7 +92,7 @@ First, let us try to check how we can access it locally in our Ubuntu shell, run
 * Open a web browser of your choice and try to access following url
 > http://13.40.63.137:80
 
-![image2](./p7.jpeg)
+![image2](./screenshots/p7.jpeg)
 
 * Another way to retrieve your Public IP address, other than to check it in AWS Web console, is to use following command:
 > curl -s http://169.254.169.254/latest/meta-data/public-ipv4
@@ -105,7 +105,7 @@ ___
 Now that you have a web server up and running, you need to install a Database Management System (DBMS) to be able to store and manage data for your site in a relational database. MySQL is a popular relational database management system used within PHP environments, so we will use it in our project.
 Again, use ‘apt’ to acquire and install this software:
 > $ sudo apt install mysql-server
-![image5](./p9.jpeg)
+![image5](./screenshots/p9.jpeg)
 
 When prompted, confirm installation by typing Y, and then ENTER.
 
@@ -229,7 +229,7 @@ phpinfo();
 
 * When you are finished, save and close the file, refresh the page and you will see a page similar to this:
 
-![final-image](./p18.jpeg)
+![final-image](./screenshots/p18.jpeg)
 
 This page provides information about your server from the perspective of PHP. It is useful for debugging and to ensure that your settings are being applied correctly.
 If you can see this page in your browser, then your PHP installation is working as expected.
