@@ -241,4 +241,4 @@ sudo rm /var/www/projectlamp/index.php
 You can always recreate this page if you need to access the information again later.
 
 
-## !!! Congratulations, you have successfully hosted your LAMP server on aws
+## !!! Congratulations, you have successfully hosted your LAMP server on AWS
