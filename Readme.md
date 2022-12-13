@@ -159,7 +159,7 @@ Press y|Y for Yes, any other key for No:
 If you answer “yes”, you’ll be asked to select a level of password validation. Keep in mind that if you enter 2 for the strongest level, you will receive errors when attempting to set any password which does not contain numbers, upper and lowercase letters, and special characters, or which is based on common dictionary words e.g., PassWord.1.
 
 To exit the MySQL console, type:
-> mysql> exit
+> `mysql> exit`
 
 <!-- Horizontal RUle -->
 ---
@@ -168,7 +168,8 @@ ___
 ### Step 4: Installing PHP
 You have Apache installed to serve your content and MySQL installed to store and manage your data. PHP is the component of our setup that will process code to display dynamic content to the end user. In addition to the php package, you’ll need php-mysql, a PHP module that allows PHP to communicate with MySQL-based databases. You’ll also need libapache2-mod-php to enable Apache to handle PHP files. Core PHP packages will automatically be installed as dependencies.
 To install these 3 packages at once, run:
-> sudo apt install php libapache2-mod-php php-mysql
+
+>`sudo apt install php libapache2-mod-php php-mysql`
 
  ![image3](./screenshots/p11.jpeg)
 Once the installation is finished, you can run the following command to confirm your PHP version:
