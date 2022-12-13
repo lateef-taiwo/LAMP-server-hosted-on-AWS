@@ -112,7 +112,7 @@ ___
 ### Step 3: Installing Mysql
 Now that you have a web server up and running, you need to install a Database Management System (DBMS) to be able to store and manage data for your site in a relational database. MySQL is a popular relational database management system used within PHP environments, so we will use it in our project.
 Again, use ‘apt’ to acquire and install this software:
-> $ sudo apt install mysql-server
+> `$ sudo apt install mysql-server`
 
 ![image5](./screenshots/p9.jpeg)
 
@@ -133,22 +133,24 @@ Server version: 8.0.22-0ubuntu0.20.04.3 (Ubuntu)
  
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
  
-mysql> 
+`mysql> `
 
 It’s recommended that you run a security script that comes pre-installed with MySQL. This script will remove some insecure default settings and lock down access to your database system. Before running the script, you will set a password for the root user, using mysql_native_password as default authentication method. We’re defining this user’s password as PassWord.1.
 
-> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1'; 
+`ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';`
 
 Exit the MySQL shell with:
-> mysql> exit
+
+` mysql> exit`
+
 Start the interactive script by running:
-> $ sudo mysql_secure_installation
+> `$ sudo mysql_secure_installation`
 
 This will ask if you want to configure the VALIDATE PASSWORD PLUGIN.
 Note: Enabling this feature is something of a judgment call. If enabled, passwords which don’t match the specified criteria will be rejected by MySQL with an error. It is safe to leave validation disabled, but you should always use strong, unique passwords for database credentials.
 Answer Y for yes, or anything else to continue without enabling.
 
-> VALIDATE PASSWORD PLUGIN can be used to test passwords
+* VALIDATE PASSWORD PLUGIN can be used to test passwords
 and improve security. It checks the strength of password
 and allows the users to set only those passwords which are
 secure enough. Would you like to setup VALIDATE PASSWORD plugin? 
