@@ -6,7 +6,8 @@ LAMP stack (Linux + Apache + MySQL + PHP/Perl/Python) are a popular setup for we
 
 One advantage of LAMP is the substantial flexibility for different database, web server, and scripting languages. Popular substitutes for MySQL include SQLite and  PostgreSQL. PHP can be replaced with  Python, Perl while Nginx, Cherokee and Lighttpd can replace Apache in other web stack implementatios like the LEMP application stack.
 
-For this LAMP stack project Linux, APache, MySQL and PHP will will used.  All four of these technologies are open source, which means they are community maintained and freely available for anyone to use. Developers use LAMP stacks to create, host, and maintain web content. It is a popular solution that powers many of the websites you commonly use today. To read more about LAMP stack, checkout this AWS documentation [https://aws.amazon.com/what-is/lamp-stack/](https://aws.amazon.com/what-is/lamp-stack/ "what is lamp stack")
+For this LAMP stack project Linux, APache, MySQL and PHP will be used.  All four of these technologies are open source, which means they are community maintained and freely available for anyone to use. Developers use LAMP stacks to create, host, and maintain web content. It is a popular solution that powers many of the websites you commonly use today. 
+To read more about LAMP stack, checkout this AWS documentation [https://aws.amazon.com/what-is/lamp-stack/](https://aws.amazon.com/what-is/lamp-stack/ "what is lamp stack")
 
 <!-- Horizontal RUle -->
 ---
