@@ -70,21 +70,20 @@ Congratulations! You have just created your very first Linux Server in the Cloud
 ---
 ___
 
-
 ### Step 2: Installing Apache and Updating the Firewall
 Apache HTTP Server is the most widely used web server software. Developed and maintained by Apache Software Foundation, Apache is an open-source software available for free. It runs on 67% of all webservers in the world. It is fast, reliable, and secure. It can be highly customized to meet the needs of many different environments by using extensions and modules. Most WordPress hosting providers use Apache as their web server software.
 <!-- UL -->
 * Update a list of packages in package manager
-    > sudo apt update
+    > `sudo apt update`
 
     ![image3](./screenshots/p4.jpeg)
 * Run apache2 package installation
- > sudo apt install apache2
+ > `sudo apt install apache2`
 
 ![image3](./screenshots/p4.jpeg)
 
 * To verify that apache2 is running as a Service
-> sudo systemctl status apache2 
+> `sudo systemctl status apache2` 
 
 ![image3](./screenshots/p5.jpeg)
 Before we can receive any traffic by our Web Server, we need to open TCP port 80 which is the default port that web browsers use to access web pages on the Internet
@@ -104,7 +103,7 @@ First, let us try to check how we can access it locally in our Ubuntu shell, run
 ![image2](./screenshots/p7.jpeg)
 
 * Another way to retrieve your Public IP address, other than to check it in AWS Web console, is to use following command:
-> curl -s http://169.254.169.254/latest/meta-data/public-ipv4
+> `curl -s http://169.254.169.254/latest/meta-data/public-ipv4`
 
 <!-- Horizontal RUle -->
 ---
